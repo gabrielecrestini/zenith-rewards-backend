@@ -1,0 +1,21 @@
+# fly.toml
+
+# Nome della tua app su Fly.io. Deve essere unico.
+app = 'zenith-rewards-backend'
+primary_region = 'cdg' # Esempio: Parigi. Scegli la regione più vicina ai tuoi utenti.
+
+[build]
+  # Specifica che Fly.io deve usare il Dockerfile per costruire l'app
+  image = "python-app" # Nome dell'immagine da usare, può essere qualsiasi cosa
+
+[http_service]
+  internal_port = 8080 # La porta su cui la nostra app ascolta DENTRO il container
+  force_https = true   # Forza tutte le connessioni ad usare HTTPS (sicurezza)
+  auto_stop_machines = true  # Spegne le macchine quando non c'è traffico per risparmiare costi
+  auto_start_machines = true # Riaccende automaticamente le macchine al primo request
+  min_machines_running = 0   # Numero minimo di macchine attive (0 per il piano gratuito)
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256 # Minima memoria, adatta per iniziare. Da aumentare se necessario.
