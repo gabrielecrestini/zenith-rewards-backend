@@ -7,10 +7,13 @@ gunicorn
 # Database connector
 psycopg2-binary
 
-# Cloud services
+# Cloud & API services
 google-cloud-aiplatform
 stripe
+firebase-admin      # Aggiunto per l'autenticazione sicura con Firebase
+
+# Image processing
+Pillow              # Aggiunto per la gestione di immagini (utile per l'IA)
 
 # Utilities
 python-dotenv
-
